@@ -8,8 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Minitest::Extra::Matchers::VERSION
   spec.authors       = ["Łukasz Niemier"]
   spec.email         = ["lukasz@niemier.pl"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Extra matchers for MiniTest::Spec that simplify specs}
+  spec.description   = %q{Add bunch of 'new' matchers to MiniTest::Spec that
+  allow you to write your specs more like in RSpec, but keeping MiniTest simplicity}
   spec.homepage      = ""
   spec.license       = "MIT"
 
