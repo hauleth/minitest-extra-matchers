@@ -15,10 +15,6 @@ module Minitest
           end
         end
 
-        def pending
-          skip('Not yet implemented...')
-        end
-
         module ClassMethods
           def subject(name = nil, &block)
             if name
@@ -31,10 +27,6 @@ module Minitest
 
           def its(name, &block)
             it { subject.send(name).instance_eval(&block) }
-          end
-
-          def pending
-            it { pending }
           end
         end
       end
