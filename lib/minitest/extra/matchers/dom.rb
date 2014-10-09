@@ -18,7 +18,7 @@ module Minitest
         end
 
         def assert_attribute_equal(element, name, value)
-          actual = HTML::Document.new(element).root.attribute(name)
+          actual = Nokogiri::HTML(element).root.attribute(name)
 
           assert_equal value, actual
         end
