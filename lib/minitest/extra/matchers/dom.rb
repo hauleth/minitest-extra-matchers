@@ -11,14 +11,14 @@ module Minitest
         end
 
         def assert_dom_equal(expected, actual)
-          expected_dom = Nokogiri::HTML(expected).root
-          actual_dom   = Nokogiri::HTML(actual).root
+          expected_dom = Nokogiri::HTML.fragment(expected).child
+          actual_dom   = Nokogiri::HTML.fragment(actual).child
 
           assert_equal expected_dom, actual_dom
         end
 
         def assert_attribute_equal(element, name, value)
-          actual = Nokogiri::HTML(element).root.attribute(name)
+          actual = Nokogiri::HTML.fragment(element).child.attr(name)
 
           assert_equal value, actual
         end
