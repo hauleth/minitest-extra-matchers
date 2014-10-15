@@ -13,8 +13,8 @@ module Minitest
         end
 
         module ClassMethods
-          def pending
-            it { pending }
+          def pending(name = nil)
+            it(name) { pending }
           end
         end
       end
