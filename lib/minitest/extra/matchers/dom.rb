@@ -1,3 +1,5 @@
+require 'equivalent-xml'
+
 module Minitest
   module Extra
     module Matchers
@@ -7,11 +9,14 @@ module Minitest
           Object.infect_an_assertion :assert_attr_equal, :must_have_attr
         end
 
-        def assert_dom_equal(expected, actual)
-          expected_dom = Nokogiri::HTML.fragment(expected).child
-          actual_dom   = Nokogiri::HTML.fragment(actual).child
+        def assert_dom_equal(expected, actual, opts = {})
+          expected_dom = Nokogiri::HTML.fragment(expected)
+          actual_dom   = Nokogiri::HTML.fragment(actual)
 
-          assert_equal expected_dom, actual_dom
+          assert(EquivalentXml.equivalent?(actual, expected, opts),
+                 ['expected:', expected_dom.to_s,
+                  'actual:', actual_dom.to_s].join("\n"))
+
         end
 
         def assert_attr_equal(value, element, name)
